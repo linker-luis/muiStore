@@ -52,18 +52,18 @@ export default Carousel
 const data = [
     {
         title: 'content 1',
-        img: 'https://home.ripley.com.pe/minisitios/home/huincha/22/04/26/webp/1.webp?v4'
+        img: '/imgs/1.png'
     },
     {
         title: 'content 2',
-        img: 'https://oechsle.vteximg.com.br/arquivos/Slider-moda-homemama-2304-desktop-b.png'
+        img: '/imgs/2.webp'
     },
     {
         title: 'content 3',
-        img: 'https://oechsle.vteximg.com.br/arquivos/Slider-electro-calzadito-2304-desktop-b.png'
+        img: '/imgs/3.png'
     },
     {
         title: 'content 4',
-        img: 'https://oechsle.vteximg.com.br/arquivos/vitrina_encuentratutalla_oe_desktop.png'
+        img: '/imgs/4.png'
     }
 ]
