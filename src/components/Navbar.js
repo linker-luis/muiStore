@@ -8,9 +8,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import CartProduct from './CartProduct';
 import { CartContext } from '../context/CartContext';
+import Search from './Search';
 
 function Navbar() {
   const [toggleCart, setToggleCart] = useState(false)
+  const [openSearch, setOpenSearch] = useState(false)
   const { totalQuantity} = useContext(CartContext)
   
   return (
@@ -30,21 +32,22 @@ function Navbar() {
           </Box>
 
           <Box sx={{display: 'flex', gap: 1}}>
-            <ListItemButton>              
+            <ListItemButton onClick={() => setOpenSearch(!openSearch)}>              
               <SearchIcon/>              
               <ListItemText primary = 'Buscar' sx={{color: 'rgba(44, 44, 44, 0.7)', marginLeft: '5px'}}/>
             </ListItemButton>
+            <Search open = {openSearch} handleClose = {setOpenSearch} />
               
-              <Divider orientation="vertical" flexItem/>
-              <IconButton>
-                <PersonIcon/>
-              </IconButton>
-              <Divider orientation="vertical" flexItem/>
-              <IconButton onClick={() => setToggleCart(true)}>
-                <ShoppingCartIcon/>
-                <SpanCounter>{totalQuantity}</SpanCounter>
-              </IconButton>
-              <CartProduct toggle = {toggleCart} setToggle = {setToggleCart}/>
+            <Divider orientation="vertical" flexItem/>
+            <IconButton>
+              <PersonIcon/>
+            </IconButton>
+            <Divider orientation="vertical" flexItem/>
+            <IconButton onClick={() => setToggleCart(true)}>
+              <ShoppingCartIcon/>
+              <SpanCounter>{totalQuantity}</SpanCounter>
+            </IconButton>
+            <CartProduct toggle = {toggleCart} setToggle = {setToggleCart}/>
           </Box>
         </Nav>
       </Container>

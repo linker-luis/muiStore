@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CarouselContainer, CarouselImg, CarouselItem, MyIconButton } from '../styles/Carousel'
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { data } from '../constant/data';
 
 function Carousel() {
     const [index, setIndex] = useState(0)
-    const { img} = data[index]
+    const {img} = data[index]
     
     const getNext = () => {
         let newIndex = index + 1
@@ -29,6 +30,16 @@ function Carousel() {
         }
     }
 
+    useEffect(() => {
+        const slider = setInterval(() => {
+                getNext()
+            }, 5000)
+
+        return () => {
+            clearInterval(slider)
+        }
+    })
+
        
   return (
     <CarouselContainer>
@@ -49,21 +60,3 @@ function Carousel() {
 
 export default Carousel
 
-const data = [
-    {
-        title: 'content 1',
-        img: '/imgs/1.png'
-    },
-    {
-        title: 'content 2',
-        img: '/imgs/2.webp'
-    },
-    {
-        title: 'content 3',
-        img: '/imgs/3.png'
-    },
-    {
-        title: 'content 4',
-        img: '/imgs/4.png'
-    }
-]

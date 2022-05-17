@@ -22,7 +22,7 @@ function ProductSection() {
                 {
                     products.map(product => {
                         return(
-                            <Grid key = {product.id} item xs = {4}>
+                            <Grid key = {product.id} item xs = {12} sm = {6} md = {4}>
                                 <ProductCard product = {product}/>   
                                         
                             </Grid>
